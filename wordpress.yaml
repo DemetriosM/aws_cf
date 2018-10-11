@@ -9,10 +9,10 @@ Parameters:
     Description: VpcId of your existing Virtual Private Cloud (VPC)
     Type: 'AWS::EC2::VPC::Id'
     ConstraintDescription: must be the VPC Id of an existing Virtual Private Cloud.
-  Subnets:
-    Type: List<AWS::EC2::Subnet::Id>
-    Description: subnets
-    ConstraintDescription: subnets
+  #Subnets:
+  #  Type: List<AWS::EC2::Subnet::Id>
+  #  Description: subnets
+  #  ConstraintDescription: subnets
   KeyName:
     Description: Name of an existing EC2 KeyPair to enable SSH access to the instances
     Type: 'AWS::EC2::KeyPair::KeyName'
