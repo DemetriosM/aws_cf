@@ -108,13 +108,12 @@ Resources:
       EC2VpcId:
         Ref: "VpcId"
 
-  DBSubnetGroup:
-    Type: AWS::RDS::DBSubnetGroup
-    Properties:
-      DBSubnetGroupDescription: subnets
-      DBSubnetGroupName: wpdb
-      SubnetIds:
-        Ref: Subnets
+  #DBSubnetGroup:
+  #  Type: AWS::RDS::DBSubnetGroup
+  #  Properties:
+  #    DBSubnetGroupDescription: subnets
+  #    SubnetIds:
+  #      Ref: Subnets
 
   WebServer:
     Type: 'AWS::EC2::Instance'
@@ -166,6 +165,7 @@ Resources:
         Ref: DBClass
       DBSecurityGroups:
         - !Ref DBSecurityGroup
+      DBSubnetGroupName: wpdb
       AllocatedStorage:
         Ref: DBAllocatedStorage
       MasterUsername:
