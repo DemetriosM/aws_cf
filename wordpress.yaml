@@ -12,6 +12,7 @@ Parameters:
   Subnets:
     Type: List<AWS::EC2::Subnet::Id>
     Description: subnets
+    Default: wpdb
     ConstraintDescription: subnets
   KeyName:
     Description: Name of an existing EC2 KeyPair to enable SSH access to the instances
