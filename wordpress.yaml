@@ -172,3 +172,7 @@ Resources:
         Ref: DBUser
       MasterUserPassword:
         Ref: DBPassword
+  Outputs:
+    InstanceAddress:
+      Description: The Instance Public IP Address
+      Value: !GetAtt WebServer.PublicIp
