@@ -114,7 +114,14 @@ Resources:
   #    DBSubnetGroupDescription: subnets
   #    SubnetIds:
   #      Ref: Subnets
-
+  
+  InstanceProfile:
+    Type: AWS::IAM::InstanceProfile
+    Properties: 
+      Path: String
+      Roles:
+        - dm_s3 
+  
   WebServer:
     Type: 'AWS::EC2::Instance'
     Properties:
@@ -126,6 +133,7 @@ Resources:
           - !Ref InstanceType
           - Arch
       InstanceType: !Ref InstanceType
+      IamInstanceProfile: !Ref InstanceProfile
       SecurityGroupIds:
         - !Ref WebServerSecurityGroup
       KeyName: !Ref KeyName
@@ -135,6 +143,10 @@ Resources:
             #!/bin/bash
             apt-get update
             apt-get -y install apache2 php php-mysql libapache2-mod-php
+            sudo apt-get -y install python3 python-pip
+            export LC_ALL=C
+            pip install awscli
+
           #  sudo rm /var/www/html/index.html
           #  cd /tmp/
           #  wget https://wordpress.org/latest.tar.gz
@@ -151,7 +163,7 @@ Resources:
           #  DBPassword: !Ref DBPassword,
           #  DBUser: !Ref DBUser,
           #  DBName: !Ref DBName
-            }
+          #  }
 
   DBInstance:
     Type: AWS::RDS::DBInstance
