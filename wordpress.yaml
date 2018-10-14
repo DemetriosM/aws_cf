@@ -119,7 +119,7 @@ Resources:
     Type: AWS::IAM::InstanceProfile
     Properties: 
       Roles:
-        - dm_s3 
+        - S3FullAccess 
   
   WebServer:
     Type: 'AWS::EC2::Instance'
