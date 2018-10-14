@@ -157,12 +157,12 @@ Resources:
           #  sudo sed -i "s/password_here/${DBPassword}/g" /var/www/html/wp-config.php
           #  sudo sed -i "s/database_name_here/${DBName}/g" /var/www/html/wp-config.php
           #  sudo service apache2 restart
-          #- {
+          - {
           #  DBAddress: !GetAtt DBInstance.Endpoint.Address,
           #  DBPassword: !Ref DBPassword,
           #  DBUser: !Ref DBUser,
           #  DBName: !Ref DBName
-          #  }
+            }
 
   DBInstance:
     Type: AWS::RDS::DBInstance
