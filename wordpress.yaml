@@ -146,7 +146,7 @@ Resources:
             export LC_ALL=C
             pip install awscli
             sudo service apache2 restart
-          #  sudo rm /var/www/html/index.html
+            sudo rm /var/www/html/index.html
           #  cd /tmp/
           #  wget https://wordpress.org/latest.tar.gz
           #  sudo tar -xzvf latest.tar.gz -C /var/www/html/
