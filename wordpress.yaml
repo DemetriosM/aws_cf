@@ -170,8 +170,8 @@ Resources:
       DBName:
         Ref: DBName
       Engine: MySQL
-      DBSubnetGroupName:
-        Ref: DBSubnetGroup
+      #DBSubnetGroupName:
+      #  Ref: DBSubnetGroup
       DBInstanceClass:
         Ref: DBClass
       DBSecurityGroups:
