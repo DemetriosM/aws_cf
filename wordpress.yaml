@@ -118,7 +118,6 @@ Resources:
   InstanceProfile:
     Type: AWS::IAM::InstanceProfile
     Properties: 
-      Path: String
       Roles:
         - dm_s3 
   
