@@ -146,7 +146,7 @@ Resources:
             sudo apt-get -y install python3 python-pip
             export LC_ALL=C
             pip install awscli
-
+            sudo service apache2 restart
           #  sudo rm /var/www/html/index.html
           #  cd /tmp/
           #  wget https://wordpress.org/latest.tar.gz
