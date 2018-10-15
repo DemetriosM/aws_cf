@@ -172,7 +172,7 @@ Resources:
               command: "systemctl start cfn-hup.service"
         wordpress:
           source:
-            /var/www/html: !Sub "https://s3-eu-west-1.amazonaws.com/cf-templates-19ycoujyu7ety-us-east-1/LATEST_BUILD"
+            /var/www/html: !Sub "https://s3.amazonaws.com/cf-templates-19ycoujyu7ety-us-east-1/LATEST_BUILD"
               
     Properties:
       ImageId: !FindInMap 
