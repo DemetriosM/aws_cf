@@ -173,7 +173,7 @@ Resources:
             start-cfn-hup:
               command: "systemctl start cfn-hup.service"
         wordpress:
-          source:
+          sources:
             /var/www/html: !Sub "https://s3.amazonaws.com/cf-templates-19ycoujyu7ety-us-east-1/LATEST_BUILD"
               
     Properties:
