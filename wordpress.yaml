@@ -209,25 +209,25 @@ Resources:
           #  DBName: !Ref DBName
             }
 
-  DBInstance:
-    Type: AWS::RDS::DBInstance
-    Properties:
-      DBName:
-        Ref: DBName
-      Engine: MySQL
+  #DBInstance:
+  #  Type: AWS::RDS::DBInstance
+  #  Properties:
+  #    DBName:
+  #      Ref: DBName
+  #    Engine: MySQL
       #DBSubnetGroupName:
       #  Ref: DBSubnetGroup
-      DBInstanceClass:
-        Ref: DBClass
-      DBSecurityGroups:
-        - !Ref DBSecurityGroup
-      DBSubnetGroupName: wpdb
-      AllocatedStorage:
-        Ref: DBAllocatedStorage
-      MasterUsername:
-        Ref: DBUser
-      MasterUserPassword:
-        Ref: DBPassword
+  #    DBInstanceClass:
+  #      Ref: DBClass
+  #    DBSecurityGroups:
+  #      - !Ref DBSecurityGroup
+  #    DBSubnetGroupName: wpdb
+  #    AllocatedStorage:
+  #      Ref: DBAllocatedStorage
+  #    MasterUsername:
+  #      Ref: DBUser
+  #    MasterUserPassword:
+  #      Ref: DBPassword
 Outputs:
   InstanceAddress:
     Description: The Instance Public IP Address
