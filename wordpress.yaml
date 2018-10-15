@@ -141,7 +141,7 @@ Resources:
             rm_index_html:
               command: "rm /var/www/html/index.html"
             test: 
-              command: "echo Hello > test.txt"
+              command: "service apache2 restart"
         config-cfn-hup:
           files:
             '/etc/cfn/cfn-hup.conf':
