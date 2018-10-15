@@ -215,7 +215,6 @@ Resources:
       AllocatedStorage:
         Ref: DBAllocatedStorage
       BackupRetentionPeriod: 0
-      DeletionPolicy: Delete
       DBName:
         Ref: DBName
       #DBSubnetGroupName:
