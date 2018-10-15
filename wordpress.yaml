@@ -123,19 +123,6 @@ Resources:
   
   WebServer:
     Type: 'AWS::EC2::Instance'
-    Properties:
-      ImageId: !FindInMap 
-        - AWSRegionArch2AMI
-        - !Ref 'AWS::Region'
-        - !FindInMap 
-          - AWSInstanceType2Arch
-          - !Ref InstanceType
-          - Arch
-      InstanceType: !Ref InstanceType
-      IamInstanceProfile: !Ref InstanceProfile
-      SecurityGroupIds:
-        - !Ref WebServerSecurityGroup
-      KeyName: !Ref KeyName
     Metadata:
       AWS::CloudFormation::Init:
         configSets:
@@ -179,6 +166,19 @@ Resources:
           source:
             /var/www/html: !Sub "https://s3-eu-west-1.amazonaws.com/cf-templates-19ycoujyu7ety-us-east-1/LATEST_BUILD"
               
+    Properties:
+      ImageId: !FindInMap 
+        - AWSRegionArch2AMI
+        - !Ref 'AWS::Region'
+        - !FindInMap 
+          - AWSInstanceType2Arch
+          - !Ref InstanceType
+          - Arch
+      InstanceType: !Ref InstanceType
+      IamInstanceProfile: !Ref InstanceProfile
+      SecurityGroupIds:
+        - !Ref WebServerSecurityGroup
+      KeyName: !Ref KeyName
       UserData: 
         Fn::Base64: !Sub |
             #!/bin/bash -xe
