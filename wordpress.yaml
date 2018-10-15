@@ -139,7 +139,14 @@ Resources:
               libapache2-mod-php: []
           commands:
             rm_index_html:
-              command: "sudo rm /var/www/html/index.html"
+              command: "rm /var/www/html/index.html"
+            test: 
+              command: "echo \"$MAGIC\" > test.txt"
+              env: 
+                MAGIC: "I come from the environment!"
+              cwd: "~"
+              test: "test ! -e ~/test.txt"
+              ignoreErrors: "false"
         config-cfn-hup:
           files:
             '/etc/cfn/cfn-hup.conf':
