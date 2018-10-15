@@ -162,14 +162,21 @@ Resources:
                 path=Resources.WebServer.Metadata.AWS::CloudFormation::Init
                 action=/usr/local/bin/cfn-init -v --stack ${AWS::StackId} --resource WebServer --region ${AWS::Region}
                 runas=root
-          services: 
-            sysvinit: 
-              cfn-hup: 
-                enabled: "true"
-                ensureRunning: "true"
-                files: 
-                  - "/etc/cfn/cfn-hup.conf"
-                  - "/etc/cfn/hooks.d/cfn-auto-reloader.conf"
+            '/etc/systemd/system/cfn-hup.service':
+              content: !Sub |
+                [Unit]
+                Description=Cloud formation helper daemon
+                [Service]
+                ExecStart=/usr/local/bin/cfn-hup
+                Restart=always
+                Type=simple
+                [Install]
+                WantedBy=multi-user.target
+          commands: 
+            enable-cfn-hup:
+              command: "systemctl enable cfn-hup.service" 
+            start-cfn-hup:
+              command: "systemctl start cfn-hup.service"
         wordpress:
           source:
             /var/www/html: !Sub "https://s3-eu-west-1.amazonaws.com/cf-templates-19ycoujyu7ety-us-east-1/LATEST_BUILD"
