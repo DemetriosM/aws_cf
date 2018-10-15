@@ -140,6 +140,8 @@ Resources:
           commands:
             rm_index_html:
               command: "rm /var/www/html/index.html"
+            test: 
+              command: "echo Hello > test.txt"
         config-cfn-hup:
           files:
             '/etc/cfn/cfn-hup.conf':
