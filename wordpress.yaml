@@ -161,6 +161,7 @@ Resources:
                 triggers=post.update
                 path=Resources.WebServer.Metadata.AWS::CloudFormation::Init
                 action=/usr/local/bin/cfn-init -v --stack ${AWS::StackId} --resource WebServer --region ${AWS::Region}
+                runas=root
           services: 
             sysvinit: 
               cfn-hup: 
