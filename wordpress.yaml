@@ -139,7 +139,7 @@ Resources:
               libapache2-mod-php: []
           commands:
             rm_index_html:
-              command: "rm /var/www/html/index.html"
+              command: "sudo rm /var/www/html/index.html"
         config-cfn-hup:
           files:
             '/etc/cfn/cfn-hup.conf':
