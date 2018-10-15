@@ -180,8 +180,7 @@ Resources:
             /var/www/html: !Sub "https://s3-eu-west-1.amazonaws.com/cf-templates-19ycoujyu7ety-us-east-1/LATEST_BUILD"
               
       UserData: 
-        Fn::Base64: !Sub 
-          - |
+        Fn::Base64: !Sub |
             #!/bin/bash -xe
             apt-get update
             apt-get -y install python-pip
@@ -202,12 +201,12 @@ Resources:
           #  sudo sed -i "s/password_here/${DBPassword}/g" /var/www/html/wp-config.php
           #  sudo sed -i "s/database_name_here/${DBName}/g" /var/www/html/wp-config.php
           #  sudo service apache2 restart
-          - {
+          #- {
           #  DBAddress: !GetAtt DBInstance.Endpoint.Address,
           #  DBPassword: !Ref DBPassword,
           #  DBUser: !Ref DBUser,
           #  DBName: !Ref DBName
-            }
+          #  }
 
   DBInstance:
     Type: AWS::RDS::DBInstance
