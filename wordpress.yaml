@@ -172,8 +172,8 @@ Resources:
               command: "systemctl start cfn-hup.service"
         wordpress:
           commands:
-            remove_old_content:
-              command: "rm -r /var/www/html/*"
+            remove_index_ntml:
+              command: "rm /var/www/html/index.html"
           sources:
             /var/www/html: !Sub "https://s3.amazonaws.com/cf-templates-19ycoujyu7ety-us-east-1/LATEST_BUILD"
               
