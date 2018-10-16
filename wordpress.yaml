@@ -138,9 +138,7 @@ Resources:
               php-mysql: []
               libapache2-mod-php: []
           commands:
-            rm_index_html:
-              command: "rm /var/www/html/index.html"
-            test: 
+            restart_apache: 
               command: "service apache2 restart"
         config-cfn-hup:
           files:
@@ -173,6 +171,9 @@ Resources:
             start-cfn-hup:
               command: "systemctl start cfn-hup.service"
         wordpress:
+          commands:
+            remove_old_content:
+              command: "rm -r /var/www/html/*"
           sources:
             /var/www/html: !Sub "https://s3.amazonaws.com/cf-templates-19ycoujyu7ety-us-east-1/LATEST_BUILD"
               
